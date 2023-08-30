@@ -1,10 +1,12 @@
 import React from 'react';
 import { GetServerSidePropsContext, NextPage } from 'next';
 import { checkAuth } from '@/utils/checkAuth';
+import { Header } from '@/components/Header';
 
 const DashboardPage: NextPage /* <Props> */ = () => {
   return (
     <main>
+      <Header />
       <h1>Dashboard</h1>
     </main>
   );
