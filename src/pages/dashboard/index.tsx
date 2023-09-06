@@ -2,14 +2,19 @@ import React from 'react';
 import { GetServerSidePropsContext, NextPage } from 'next';
 import { checkAuth } from '@/utils/checkAuth';
 import { Header } from '@/components/Header';
+import { Layout } from '@/layouts/Layout';
+import { DashboardLayout } from '@/layouts/HomeLayout';
 
-const DashboardPage: NextPage /* <Props> */ = () => {
+const DashboardPage: NextPage = () => {
   return (
-    <main>
-      <Header />
+    <DashboardLayout>
       <h1>Dashboard</h1>
-    </main>
+    </DashboardLayout>
   );
+};
+
+DashboardPage.getLayout = (page: React.ReactNode) => {
+  return <Layout title="Dashboard / Main">{page}</Layout>;
 };
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {

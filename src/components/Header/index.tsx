@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
 
   const onClickLogout = () => {
     Api.auth.logout();
-    location.href = '/';
+    location.href = '/dashboard/auth';
   };
 
   return (
