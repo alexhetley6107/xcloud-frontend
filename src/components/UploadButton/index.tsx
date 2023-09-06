@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/styles/Home.module.scss';
+import s from '@/styles/Home.module.scss';
 import { Button, Upload, UploadFile, notification } from 'antd';
 import { CloudUploadOutlined } from '@ant-design/icons';
 
@@ -29,7 +29,7 @@ export const UploadButton: React.FC = () => {
       customRequest={onUploadSuccess}
       fileList={fileList}
       onChange={({ fileList }) => setFileList(fileList)}
-      className={styles.upload}
+      className={s.upload}
     >
       <Button type="primary" icon={<CloudUploadOutlined />} size="large">
         Upload File
