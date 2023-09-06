@@ -7,6 +7,7 @@ import {
   FileImageOutlined,
   FileOutlined,
 } from '@ant-design/icons';
+import { UploadButton } from '@/components/UploadButton';
 
 export const DashboardLayout: React.FC<React.PropsWithChildren> = ({
   children,
@@ -17,6 +18,7 @@ export const DashboardLayout: React.FC<React.PropsWithChildren> = ({
   return (
     <main className={s.dashboardContainer}>
       <div className={s.sidebar}>
+        <UploadButton />
         <Menu
           className={s.menu}
           mode="inline"

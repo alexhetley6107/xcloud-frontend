@@ -1,9 +1,8 @@
 import React from 'react';
 import { GetServerSidePropsContext, NextPage } from 'next';
 import { checkAuth } from '@/utils/checkAuth';
-import { Header } from '@/components/Header';
 import { Layout } from '@/layouts/Layout';
-import { DashboardLayout } from '@/layouts/HomeLayout';
+import { DashboardLayout } from '@/layouts/DashboardLayout';
 
 const DashboardPage: NextPage = () => {
   return (
