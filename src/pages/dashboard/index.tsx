@@ -3,11 +3,18 @@ import { GetServerSidePropsContext, NextPage } from 'next';
 import { checkAuth } from '@/utils/checkAuth';
 import { Layout } from '@/layouts/Layout';
 import { DashboardLayout } from '@/layouts/DashboardLayout';
+import { FileItem } from '@/api/dto/files.dto';
+import { FileList } from '@/components/FileList';
+import * as Api from '@/api';
 
-const DashboardPage: NextPage = () => {
+interface Props {
+  items: FileItem[];
+}
+
+const DashboardPage: NextPage<Props> = ({ items }) => {
   return (
     <DashboardLayout>
-      <h1>Dashboard</h1>
+      <FileList items={items} />
     </DashboardLayout>
   );
 };
@@ -23,9 +30,20 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
     return authProps;
   }
 
-  return {
-    props: {},
-  };
+  try {
+    const items = await Api.files.getAll();
+
+    return {
+      props: {
+        items,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      props: { items: [] },
+    };
+  }
 };
 
 export default DashboardPage;
