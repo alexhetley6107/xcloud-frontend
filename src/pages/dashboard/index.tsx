@@ -4,8 +4,8 @@ import { checkAuth } from '@/utils/checkAuth';
 import { Layout } from '@/layouts/Layout';
 import { DashboardLayout } from '@/layouts/DashboardLayout';
 import { FileItem } from '@/api/dto/files.dto';
-import { FileList } from '@/components/FileList';
 import * as Api from '@/api';
+import { Files } from '@/modules/Files';
 
 interface Props {
   items: FileItem[];
@@ -14,7 +14,7 @@ interface Props {
 const DashboardPage: NextPage<Props> = ({ items }) => {
   return (
     <DashboardLayout>
-      <FileList items={items} />
+      <Files items={items} withActions />
     </DashboardLayout>
   );
 };

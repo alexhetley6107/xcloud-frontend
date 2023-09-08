@@ -6,7 +6,7 @@ import { Layout } from '@/layouts/Layout';
 import * as Api from '@/api';
 import { FileItem } from '@/api/dto/files.dto';
 import { DashboardLayout } from '@/layouts/DashboardLayout';
-import { FileList } from '@/components/FileList';
+import { Files } from '@/modules/Files';
 
 interface Props {
   items: FileItem[];
@@ -15,7 +15,7 @@ interface Props {
 const DashboardPhotos: NextPage<Props> = ({ items }) => {
   return (
     <DashboardLayout>
-      <FileList items={items} />
+      <Files items={items} withActions />
     </DashboardLayout>
   );
 };
